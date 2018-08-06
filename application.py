@@ -1,11 +1,15 @@
 # Copyright (2018) Chris Heckler <hecklerchris@hotmail.com>
 
-from flask import Flask
+from flask import Flask, flash, render_template, Markup, redirect
 import webbrowser
 import random
-
+import sys
+import click
+import os
+import keyboard
 
 app = Flask(__name__)
+app.secret_key = os.urandom(24)
 
 # List of interesting sites to randomly view
 site_list = ['http://fastml.com/', 'http://andrewgelman.com/',
@@ -17,8 +21,8 @@ site_list = ['http://fastml.com/', 'http://andrewgelman.com/',
 
 
 @app.route('/')
-def site_viewer():
-    return webbrowser.open(random.choice(site_list))
+def index():
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run()

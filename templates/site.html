@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to my Data Science Site Viewer App!!</title>
+</head>
+
+{% for message in get_flashed_messages() %}
+  <div class=flash>{{ message }}</div>
+{% endfor %}
+
+<body>
+    <iframe src={{rand_site}} width='500' height='300' frameborder='0'></iframe>
+</body>
+</html>

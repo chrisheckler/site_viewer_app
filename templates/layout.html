@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Data Science Site Viewer</title>
+  </head>
+  <body>
+    <p><strong>Navigation:</strong> <a href="/">Home</a> <a href="/sites">Sites</a> <a href="mailto:hecklerchris@hotmail.com">Contact me</a></p>
+ {% for message in get_flashed_messages() %}
+      <div class=flash>{{ message }}</div>
+ {% endfor %}
+    {% block content %}{% endblock %}
+    <p>&copy; Excellent Data Science Sites</p>
+  </body>
+</html>

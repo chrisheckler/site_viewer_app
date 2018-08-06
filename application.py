@@ -1,12 +1,9 @@
 # Copyright (2018) Chris Heckler <hecklerchris@hotmail.com>
 
 from flask import Flask, flash, render_template, Markup, redirect
-import webbrowser
+
 import random
-import sys
-import click
 import os
-import keyboard
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
@@ -22,7 +19,19 @@ site_list = ['http://fastml.com/', 'http://andrewgelman.com/',
 
 @app.route('/')
 def index():
+    """Simple Home page"""
+
     return render_template('index.html')
+
+
+@app.route('/sites')
+def sites():
+    """Random Data Science sites are served """
+
+    rand_site = random.choice(site_list)
+
+    return render_template('site.html', rand_site=rand_site)
+
 
 if __name__ == '__main__':
     app.run()
